@@ -21,6 +21,128 @@
 
 <body>
     <header>
+        <div class="m_menu">
+                <div class="hamburger2">
+                    <img src="svg/menu.svg" alt="메뉴" class="hamburger-img2">
+                </div>
+                <nav class="header_nav2">
+                    <ul>
+                        <li><a href="#">ALL</a></li>
+                        <li>
+                            <a href="#">FRAGRANCES</a>
+                            <div class="submenu2">
+                                <ul>
+                                    <li class="menu-title">COLLECTIONS</li>
+                                    <li>Exclusive perfumes</li>
+                                    <li>Eaux de parfum</li>
+                                    <li>Eaux de toilette</li>
+                                    <li>Solid perfumes</li>
+                                    <li class="menu-title menu-title2">CATEGORIES</li>
+                                    <li><a href="Philosykos.html">Orphéon</a></li>
+                                    <li><a href="">Fleur De Peau</a></li>
+                                    <li><a href="">Eau des Sens</a></li>
+                                    <li><a href="">Doson</a></li>
+                                    <li><a href="Philosykos.html">Philosykos</a></li>
+                                    <li><a href="">L'Eau Papier</a></li>
+                                    <li><a href="">Tam Dao</a></li>
+                                </ul>
+
+
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">BATH & BODY</a>
+                            <div class="submenu2">
+                                <ul>
+                                    <li class="menu-title">BATH & SHOWER</li>
+                                    <li>Body & Hand Wash</li>
+                                    <li>Shower Gel & Oil</li>
+                                    <li>Soap</li>
+                                    <li>Hair Care</li>
+                                    <li>Care Collection</li>
+                                    <li class="menu-title menu-title2">BODY & FACE</li>
+                                    <li>Body Cream</li>
+                                    <li>Body & Hand Lotion</li>
+                                    <li>Body Mist</li>
+                                    <li>Hand Cream</li>
+                                    <li>Hair Mist</li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">HOME FRAGRANCE</a>
+                            <div class="submenu2">
+                                <ul>
+                                    <li class="menu-title">SCENTED CANDLES</li>
+                                    <li>Classic candles</li>
+                                    <li>Large candles</li>
+                                    <li>Small candles</li>
+                                    <li>Exclusive candles</li>
+                                    <li>Accessories</li>
+                                    <li>Reed diffusers</li>
+                                    <li class="menu-title  menu-title2">DIFFUSER & SPRAY</li>
+                                    <li>Car diffusers</li>
+                                    <li>Electric diffusers</li>
+                                    <li>Eau des Sens</li>
+                                    <li>Sprays</li>
+                                    <li>Refills</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">GIFTS</a>
+                            <div class="submenu2">
+                                <ul>
+                                    <li class="menu-title">LIMITED EDITION</li>
+                                    <li>Holiday collection</li>
+                                    <li>Personalised Engraving</li>
+                                    <li>Sets to compose</li>
+                                    <li>Little Treasures</li>
+                                    <li class="menu-title menu-title2">SELECT A GIFT</li>
+                                    <li>Best sellers</li>
+                                    <li>Decoration</li>
+                                    <li>Gift Sets</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="about.html">ABOUT DIPTYQUE</a></li>
+                    </ul>
+                </nav>
+
+                <script>
+                    const hamburger2 = document.querySelector('.hamburger2');
+                    const nav2 = document.querySelector('.header_nav2');
+                    const hamburgerImg2 = document.querySelector('.hamburger-img2');
+
+                    hamburger2.addEventListener('click', () => {
+                        nav2.classList.toggle('active');
+
+                        // 햄버거 이미지 → X 이미지 전환
+                        if (nav2.classList.contains('active')) {
+                            hamburgerImg2.src = 'svg/x.svg'; // 메뉴 열림 시 X 버튼
+                        } else {
+                            hamburgerImg2.src = 'svg/menu.svg'; // 메뉴 닫힘 시 햄버거 버튼
+                        }
+                    });
+
+                    // 서브메뉴 토글
+                    const menuItems2 = document.querySelectorAll('.header_nav2 > ul > li > a');
+
+                    menuItems2.forEach(item => {
+                        item.addEventListener('click', function (e) {
+                            const submenu = this.nextElementSibling;
+                            if (submenu && submenu.classList.contains('submenu2')) {
+                                e.preventDefault();
+                                submenu.classList.toggle('active');
+                            }
+                        });
+                    });
+                </script>
+
+
+
+            </div>
         <div class="logo_container">
             <div class="search">
                 <input type="text">
@@ -29,7 +151,7 @@
             <div class="logo_img"><a href="index.html"><img src="svg/LOGO3_대문자.svg" alt=""></a></div>
             <div class="header_icon">
                 <div class="header_icon_1"><img src="svg/user.svg" alt=""></div>
-                <div class="header_icon_1"><img src="svg/heart.svg" alt=""></div>
+                <div class="header_icon_1 icon_heart"><img src="svg/heart.svg" alt=""></div>
                 <div class="header_icon_1"><img src="svg/shopping.svg" alt=""></div>
             </div>
 
@@ -156,6 +278,9 @@
         <div class="main_banner">
             <video autoplay muted loop controls src="video/main.mp4"></video>
         </div>
+        <div class="main_banner2">
+            <video autoplay muted loop controls src="video/main2.mp4"></video>
+        </div>
         <div class="section01">
             <div class="sec1_title">
                 <h1>BEST SELLERS</h1>
@@ -164,12 +289,14 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="s1_product">
-                            <img src="p_img/오-드-뚜왈렛-플레르-드-뽀-50ml.jpg" alt="">
-                            <h2>오 드 퍼퓸 필로시코스</h2>
-                            <h3>Philosykos eau de parfum</h3>
-                            <h4>75ml ₩ 274,550</h4>
-                        </div>
+                        <a href="detail_goods.html">
+                            <div class="s1_product">
+                                <img src="p_img/오-드-뚜왈렛-플레르-드-뽀-50ml.jpg" alt="">
+                                <h2>오 드 퍼퓸 필로시코스</h2>
+                                <h3>Philosykos eau de parfum</h3>
+                                <h4>75ml ₩ 274,550</h4>
+                            </div>
+                        </a>
                     </div>
                     <div class="swiper-slide">
                         <div class="s1_product">
@@ -235,12 +362,19 @@
             <!-- Initialize Swiper -->
             <script>
                 var swiper = new Swiper(".mySwiper", {
-                    slidesPerView: 4.6,
-                    spaceBetween: 30,
-                    freeMode: true,
+                    slidesPerView: 2.4,     // 모바일
+                    spaceBetween: 8,         // 화면 폭과 맞춰 조정
+                    freeMode: false,         // 끝점 스냅
+                    breakpoints: {
+                        481: {
+                            slidesPerView: 4.6,
+                            spaceBetween: 30
+                        }
+                    }
                 });
             </script>
         </div>
+
         <div class="section02">
             <div class="sec02_banner">
                 <div class="img_box"><img src="img/banner01.jpg" alt=""></div>
@@ -257,25 +391,28 @@
                 <span class="text-overlay">LIFE CARE</span>
                 <button>더 보기</button>
             </div>
+
+
+            <!-- 스크롤 애니메이션 -->
+            <script>
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                        } else {
+                            entry.target.classList.remove('active');
+                        }
+                    });
+                }, {
+                    threshold: 0.8
+                });
+
+                document.querySelectorAll('.text-overlay').forEach((el) => observer.observe(el));
+
+            </script>
+
         </div>
 
-        <!-- 스크롤 애니메이션 -->
-        <script>
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    } else {
-                        entry.target.classList.remove('active');
-                    }
-                });
-            }, {
-                threshold: 0.5
-            });
-
-            document.querySelectorAll('.text-overlay').forEach((el) => observer.observe(el));
-
-        </script>
 
         <div class="section03">
             <div class="section01">
@@ -286,8 +423,18 @@
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
+                            <a href="detail_goods.html">
+                                <div class="s1_product">
+                                    <img src="p_img/오-드-뚜왈렛-플레르-드-뽀-50ml.jpg" alt="">
+                                    <h2>오 드 퍼퓸 필로시코스</h2>
+                                    <h3>Philosykos eau de parfum</h3>
+                                    <h4>75ml ₩ 274,550</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
                             <div class="s1_product">
-                                <img src="p_img/오-드-뚜왈렛-일리오-100ml.jpg " alt="">
+                                <img src="p_img/오-드-퍼퓸-롬브르-단-로-75ml.jpg" alt="">
                                 <h2>오 드 퍼퓸 필로시코스</h2>
                                 <h3>Philosykos eau de parfum</h3>
                                 <h4>75ml ₩ 274,550</h4>
@@ -296,22 +443,6 @@
                         <div class="swiper-slide">
                             <div class="s1_product">
                                 <img src="p_img/오-드-퍼퓸-루나마리-100mL.jpg" alt="">
-                                <h2>오 드 퍼퓸 필로시코스</h2>
-                                <h3>Philosykos eau de parfum</h3>
-                                <h4>75ml ₩ 274,550</h4>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="s1_product">
-                                <img src="p_img/오 드 퍼퓸 부아 꼬르세 100mL.jpg" alt="">
-                                <h2>오 드 퍼퓸 필로시코스</h2>
-                                <h3>Philosykos eau de parfum</h3>
-                                <h4>75ml ₩ 274,550</h4>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="s1_product">
-                                <img src="p_img/프리미엄 오 드 퍼퓸 10ml 5종 세트.jpg" alt="">
                                 <h2>오 드 퍼퓸 필로시코스</h2>
                                 <h3>Philosykos eau de parfum</h3>
                                 <h4>75ml ₩ 274,550</h4>
@@ -333,38 +464,86 @@
                                 <h4>75ml ₩ 274,550</h4>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="s1_product">
-                                <img src="p_img/리드-디퓨저-리필-휘기에-200ml.jpg" alt="">
-                                <h2>오 드 퍼퓸 필로시코스</h2>
-                                <h3>Philosykos eau de parfum</h3>
-                                <h4>75ml ₩ 274,550</h4>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="s1_product">
-                                <img src="p_img/리드 디퓨저 100ml 유리병.jpg" alt="">
-                                <h2>오 드 퍼퓸 필로시코스</h2>
-                                <h3>Philosykos eau de parfum</h3>
-                                <h4>75ml ₩ 274,550</h4>
-                            </div>
-                        </div>
                     </div>
                 </div>
+
                 <!-- Swiper JS -->
                 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-                <!-- Initialize Swiper -->
+                <!-- Swiper Initialize -->
                 <script>
                     var swiper = new Swiper(".mySwiper", {
                         slidesPerView: 4.6,
                         spaceBetween: 30,
                         freeMode: true,
+
+                        breakpoints: {
+                            0: {        // 0px 이상
+                                slidesPerView: 2.4,
+                                spaceBetween: 16
+                            },
+                            481: {      // 481px 이상
+                                slidesPerView: 4.6,
+                                spaceBetween: 30
+                            }
+                        }
                     });
                 </script>
+
             </div>
         </div>
+
+
+
+        <div class="scroll_seciton_wrap">
+            <div class="scroll_seciton">
+                <section class="comparisonSection" id="comparison">
+                    <div class="comparisonImage beforeImage">
+                        <img id="beforeImg" src="img/scroll_img.jpg" alt="before">
+                    </div>
+                    <div class="comparisonImage afterImage">
+                        <img id="afterImg" src="img/scroll_img1.jpg" alt="after">
+                    </div>
+                    <div class="scroll_seciton_button">
+                        <button>더 보기</button>
+                    </div>
+
+
+                    <!-- GSAP + ScrollTrigger -->
+                    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+                    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+                    <script>
+                        gsap.utils.toArray(".comparisonSection").forEach(section => {
+                            const afterWrap = section.querySelector(".afterImage");
+                            const afterImg = afterWrap.querySelector("img");
+
+                            gsap.timeline({
+                                scrollTrigger: {
+                                    trigger: section,
+                                    start: "center center",
+                                    end: "+=200%",       // ✅ 여기! 원래 "+=" + section.offsetWidth → "+=200%" 로 변경
+                                    scrub: true,
+                                    pin: true,
+                                    anticipatePin: 1,
+                                    markers: false       // 확인용
+                                },
+                                defaults: { ease: "none" }
+                            })
+                                .fromTo(afterWrap, { xPercent: 100 }, { xPercent: 0 }, 0)
+                                .fromTo(afterImg, { xPercent: -100 }, { xPercent: 0 }, 0);
+                        });
+                    </script>
+                </section>
+            </div>
+        </div>
+
+
+
         <div class="section04">
+            <div class="sec4_title">
+                <h1>Support & Announcements</h1>
+            </div>
             <div class="sec04_grid">
                 <div class="grid00 grid01">
                     <video autoplay muted loop src="video/Lavender2.mp4" width="360"></video>

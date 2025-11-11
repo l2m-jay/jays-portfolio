@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 
@@ -32,13 +31,13 @@ header {
 
 .logo_container {
     max-width: 1320px;
+    padding: 0 20px;
     margin: 0 auto;
     height: 95px;
     /* border: 1px solid blue; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
 }
 
 /* 검색창 */
@@ -136,7 +135,7 @@ header {
 .header_nav>ul>li>a {
     text-decoration: none;
     color: #5B5B5B;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
 }
 
@@ -149,7 +148,7 @@ header {
     transform: translateX(-50%);
     width: 100vw;
     /* nav와 동일한 폭 */
-    background: #ffffffe0;
+    background: #ffffff;
 
     /* 슬라이드다운 되기 위해 */
     max-height: 0;
@@ -238,6 +237,7 @@ header {
 
 .breadcrumb {
     max-width: 1320px;
+    padding: 0 20px;
     width: 100%;
     margin: 0 auto;
     height: 59px;
@@ -486,8 +486,8 @@ footer {
 .foot_wrap {
     max-width: 1320px;
     margin: 0 auto;
-    height: 300px;
-    padding: 30px 0;
+    height: 200px;
+    padding: 30px 20px;
 }
 
 
