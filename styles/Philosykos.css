@@ -776,12 +776,6 @@ footer {
         height: auto;
     }
 
-    /*  */
-    /* section01 */
-
-    .section01 {
-        width: 100%;
-    }
 
     .section01>h1 {
         font-size: 20px;
@@ -789,7 +783,7 @@ footer {
 
     .sec1_text>h3 {
         width: 300px;
-        font-size: 10px;
+        font-size: 12px;
         margin-top: -5px;
         word-break: keep-all;
         margin-bottom: 50px;
