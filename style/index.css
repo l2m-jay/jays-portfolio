@@ -348,33 +348,34 @@
 
      .p7 {
          width: 100%;
+         font-family: sans-serif;
      }
 
      .p7_m {
-         width: 80%;
+         width: 84%;
          margin: 0 auto;
          display: flex;
          flex-direction: column;
          align-items: start;
          justify-content: center;
-         gap: 35px;
+         gap: 29px;
      }
 
      .p7_m h1 {
-         font-size: 25px;
+         font-size: 22px;
          margin-bottom: -10px;
      }
 
      .p7_m h2 {
-         font-size: 16px;
-         font-weight: 500;
+         font-size: 15px;
+         font-weight: 700;
          letter-spacing: -1px;
          margin-bottom: 10px;
      }
 
      .p7_m h3 {
          font-size: 13px;
-         font-weight: 300;
+         font-weight: 500;
          letter-spacing: -1px;
          margin-bottom: 3px;
      }
