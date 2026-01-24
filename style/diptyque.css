@@ -128,3 +128,45 @@
      width: 100%;
      margin-top: 7px;
  }
+
+
+
+
+  @media (max-width: 767px) {
+     .section01 {
+         height: 100%;
+         /* 중요 */
+         aspect-ratio: 15 / 9;
+         /* 또는 이미지 비율 */
+         background-position: center;
+     }
+
+
+     /* header */     
+     header {
+         width: 30px;
+         height: 66px;
+         right: 2.2%;
+         bottom: 5%;
+     }
+
+     .home2 {
+         width: 30px;
+         height: 30px;
+     }
+
+     .btn {
+         width: 30px;
+         height: 30px;
+     }
+
+     .btn a {
+         text-align: center;
+         text-decoration: none;
+         font-size: 6px;
+         font-weight: 700;
+         padding: 11px 2px;
+     }
+
+
+ }

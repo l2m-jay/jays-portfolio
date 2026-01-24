@@ -12,73 +12,60 @@ body {
 
 
 
- /*  */
- /* header */
- /*  */
- header {
-     width: 50px;
-     height: 113px;
-     position: fixed;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: space-between;
-     right: 2.2%;
-     bottom: 7%;
- }
+/*  */
+/* header */
+/*  */
+header {
+  width: 50px;
+  height: 113px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  right: 2.2%;
+  bottom: 7%;
+}
 
- /* .home {
-     width: 100%;
-     height: 110px;
-     position: fixed;
-     display: flex;
-     justify-content: center;
-     align-items: center;
- }
+.home2 {
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.757);
+  border: 1px solid rgb(65, 65, 65);
+}
 
- .home img {
-     width: 130px;
- } */
+.home2 a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
- .home2 {
-     width: 48px;
-     height: 48px;
-     border-radius: 50px;
-     background-color: rgba(255, 255, 255, 0.757);
-     border: 1px solid rgb(65, 65, 65);
- }
-
- .home2 a {
-     width: 100%;
-     height: 100%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
- }
-
- .home2 img {
-     width: 55%;
- }
+.home2 img {
+  width: 55%;
+}
 
 
- .btn {
-     width: 48px;
-     height: 48px;
-     border-radius: 50px;
-     background-color: rgba(255, 255, 255, 0);
-     border: 1px solid rgba(65, 65, 65, 0);
-     display: flex;
-     justify-content: center;
-     align-items: center;
- }
+.btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(65, 65, 65, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
- .btn a {
-     text-align: center;
-     text-decoration: none;
-     font-size: 10px;
-     font-weight: 700;
-     padding: 11px 2px;
- }
+.btn a {
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 11px 2px;
+}
 
 
 
@@ -226,4 +213,113 @@ body {
 
 .pagination .active {
   background: #262626;
+}
+
+
+
+
+
+/*  */
+/* 모바일 */
+/*  */
+
+@media (max-width: 767px) {
+
+  body {
+    width: 100%;
+  }
+
+  /* header */
+  header {
+    width: 30px !important;
+    height: 66px;
+    right: 2.2%;
+    bottom: 5%;
+  }
+
+  .home2 {
+    width: 30px;
+    height: 30px;
+  }
+
+  .btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .btn a {
+    text-align: center;
+    text-decoration: none;
+    font-size: 6px;
+    font-weight: 700;
+    padding: 11px 2px;
+  }
+
+  .hero {
+  background-image: url(../img/bg_insta2.jpg);
+}
+
+  .box1 {
+    width: 80%;
+    height: auto;
+  }
+
+  .image-a {
+    height: auto;
+  }
+
+  .image-a img {
+    width: 100%;
+  }
+
+  .modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.755);
+    z-index: 9999;
+  }
+
+  .modal.active {
+    display: flex;
+  }
+
+  .modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slider {
+    width: 100vw;
+    height: auto;
+    max-height: 80vh;
+  }
+
+  .slider img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+
+  .prev,
+  .next,
+  .close {
+    display: none;
+  }
+
+  .slider,
+  .swiper,
+  .swiper-wrapper,
+  .swiper-slide {
+    background-color: #ffffff00;
+  }
+
+
 }

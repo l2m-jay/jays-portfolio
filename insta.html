@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram Style Modal</title>
     <link rel="stylesheet" href="style/insta.css">
     <link rel="icon" href="img/jay_favicon.svg">
@@ -26,7 +27,6 @@
 
     <section class="hero">
         <div class="box1">
-
             <div class="image-a"><img src="img/insta_top.png" alt="">
             </div>
 
@@ -60,124 +60,163 @@
     </div>
 
     <script>
-        const images = document.querySelectorAll(".gallery img");
-        const modal = document.getElementById("modal");
-        const modalImage = document.getElementById("modalImage");
-        const prevBtn = document.querySelector(".prev");
-        const nextBtn = document.querySelector(".next");
-        const closeBtn = document.querySelector(".close");
-        const pagination = document.getElementById("pagination");
+    const images = document.querySelectorAll(".gallery img");
+    const modal = document.getElementById("modal");
+    const modalImage = document.getElementById("modalImage");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    const closeBtn = document.querySelector(".close");
+    const pagination = document.getElementById("pagination");
+    const slider = document.querySelector(".slider");
 
-        let currentIndex = 0;
-        let slideImages = []; // 모달 안 슬라이드에 들어갈 이미지 6장 배열
+    let currentIndex = 0;
+    let slideImages = [];
 
-        // 이미지 클릭 → 모달 오픈
-        images.forEach(img => {
-            img.addEventListener("click", () => {
+    /* =========================
+       갤러리 클릭 → 모달 오픈
+    ========================= */
+    images.forEach(img => {
+        img.addEventListener("click", () => {
 
-                // 클릭한 이미지에 따라 모달 안 슬라이드에 넣을 이미지 6개를 내가 정의
-                if (img.src.includes("insta_cafe.jpg")) {
-                    slideImages = [
-                        "img/insta_cafe.jpg",
-                        "img/insta_cafe1.jpg",
-                        "img/insta_cafe2.jpg",
-                        "img/insta_cafe3.jpg",
-                        "img/insta_cafe4.jpg",
-                        "img/insta_cafe5.jpg",
-                        "img/insta_cafe6.jpg"
-                    ];
-                } else if (img.src.includes("keyring0.jpg")) {
-                    slideImages = [
-                        "img/keyring0.jpg",
-                        "img/keyring1.jpg",
-                        "img/keyring2.jpg",
-                        "img/keyring3.jpg",
-                        "img/keyring4.jpg",
-                        "img/keyring5.jpg"
-                    ];
-                }
-                else if (img.src.includes("zip0.jpg")) {
-                    slideImages = [
-                        "img/zip0.jpg",
-                        "img/zip1.jpg",
-                        "img/zip2.jpg",
-                        "img/zip3.jpg",
-                        "img/zip4.jpg",
-                        "img/zip5.jpg"
-                    ];
-                }
-                else if (img.src.includes("insta_perfume0.jpg")) {
-                    slideImages = [
-                        "img/insta_perfume0.jpg",
-                        "img/insta_perfume1.jpg",
-                        "img/insta_perfume2.jpg",
-                        "img/insta_perfume3.jpg",
-                        "img/insta_perfume4.jpg",
-                        "img/insta_perfume5.jpg"
-                    ];
-                }
-                else if (img.src.includes("cm0.jpg")) {
-                    slideImages = [
-                        "img/cm0.jpg",
-                        "img/cm1.jpg",
-                        "img/cm3.jpg",
-                        "img/cm2.jpg",
-                        "img/cm4.jpg",
-                        "img/cm5.jpg"
-                    ];
-                }
-                else if (img.src.includes("mbti0.jpg")) {
-                    slideImages = [
-                        "img/mbti0.jpg",
-                        "img/mbti1.jpg",
-                        "img/mbti2.jpg"
-                    ];
-                }
+            if (img.src.includes("insta_cafe.jpg")) {
+                slideImages = [
+                    "img/insta_cafe.jpg",
+                    "img/insta_cafe1.jpg",
+                    "img/insta_cafe2.jpg",
+                    "img/insta_cafe3.jpg",
+                    "img/insta_cafe4.jpg",
+                    "img/insta_cafe5.jpg",
+                    "img/insta_cafe6.jpg"
+                ];
+            } else if (img.src.includes("keyring0.jpg")) {
+                slideImages = [
+                    "img/keyring0.jpg",
+                    "img/keyring1.jpg",
+                    "img/keyring2.jpg",
+                    "img/keyring3.jpg",
+                    "img/keyring4.jpg",
+                    "img/keyring5.jpg"
+                ];
+            } else if (img.src.includes("zip0.jpg")) {
+                slideImages = [
+                    "img/zip0.jpg",
+                    "img/zip1.jpg",
+                    "img/zip2.jpg",
+                    "img/zip3.jpg",
+                    "img/zip4.jpg",
+                    "img/zip5.jpg"
+                ];
+            } else if (img.src.includes("insta_perfume0.jpg")) {
+                slideImages = [
+                    "img/insta_perfume0.jpg",
+                    "img/insta_perfume1.jpg",
+                    "img/insta_perfume2.jpg",
+                    "img/insta_perfume3.jpg",
+                    "img/insta_perfume4.jpg",
+                    "img/insta_perfume5.jpg"
+                ];
+            } else if (img.src.includes("cm0.jpg")) {
+                slideImages = [
+                    "img/cm0.jpg",
+                    "img/cm1.jpg",
+                    "img/cm2.jpg",
+                    "img/cm3.jpg",
+                    "img/cm4.jpg",
+                    "img/cm5.jpg"
+                ];
+            } else if (img.src.includes("mbti0.jpg")) {
+                slideImages = [
+                    "img/mbti0.jpg",
+                    "img/mbti1.jpg",
+                    "img/mbti2.jpg"
+                ];
+            }
 
-                // 다른 이미지도 같은 방식으로 배열을 정의할 수 있음
-
-                currentIndex = 0; // 슬라이드 첫 이미지부터
-                openModal();
-            });
+            currentIndex = 0;
+            openModal();
         });
+    });
 
-        function openModal() {
-            modal.classList.add("active");
-            updateSlide();
-        }
+    /* =========================
+       모달 열고 닫기
+    ========================= */
+    function openModal() {
+        modal.classList.add("active");
+        updateSlide();
+    }
 
-        function closeModal() {
-            modal.classList.remove("active");
-        }
+    function closeModal() {
+        modal.classList.remove("active");
+    }
 
-        function updateSlide() {
-            modalImage.src = slideImages[currentIndex];
-            updatePagination();
-        }
+    closeBtn.addEventListener("click", closeModal);
 
-        // 이전 / 다음 버튼
-        prevBtn.onclick = () => {
-            currentIndex = (currentIndex - 1 + slideImages.length) % slideImages.length;
-            updateSlide();
-        };
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+    });
 
-        nextBtn.onclick = () => {
+    /* =========================
+       슬라이드 업데이트
+    ========================= */
+    function updateSlide() {
+        modalImage.src = slideImages[currentIndex];
+        updatePagination();
+    }
+
+    /* =========================
+       버튼 네비게이션 (PC)
+    ========================= */
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + slideImages.length) % slideImages.length;
+        updateSlide();
+    });
+
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % slideImages.length;
+        updateSlide();
+    });
+
+    /* =========================
+       페이지네이션
+    ========================= */
+    function updatePagination() {
+        pagination.innerHTML = "";
+        slideImages.forEach((_, i) => {
+            const dot = document.createElement("span");
+            if (i === currentIndex) dot.classList.add("active");
+            pagination.appendChild(dot);
+        });
+    }
+
+    /* =========================
+       모바일 스와이프
+    ========================= */
+    let startX = 0;
+    let endX = 0;
+
+    slider.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+    });
+
+    slider.addEventListener("touchend", (e) => {
+        endX = e.changedTouches[0].clientX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const diff = startX - endX;
+
+        if (Math.abs(diff) < 50) return;
+
+        if (diff > 0) {
             currentIndex = (currentIndex + 1) % slideImages.length;
-            updateSlide();
-        };
-
-        closeBtn.onclick = closeModal;
-
-        // 페이지네이션
-        function updatePagination() {
-            pagination.innerHTML = "";
-            slideImages.forEach((_, i) => {
-                const dot = document.createElement("span");
-                if (i === currentIndex) dot.classList.add("active");
-                pagination.appendChild(dot);
-            });
+        } else {
+            currentIndex = (currentIndex - 1 + slideImages.length) % slideImages.length;
         }
-    </script>
+
+        updateSlide();
+    }
+</script>
 
 </body>
 

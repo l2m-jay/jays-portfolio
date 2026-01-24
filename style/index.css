@@ -177,6 +177,17 @@
      display: none;
  }
 
+ .p5>.p5_wrap {
+     width: 100%;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+
+
+
  .p6 {
      display: flex;
      justify-content: center;
@@ -195,11 +206,11 @@
  }
 
  .insta01 {
-     background-color: #82ff7700; 
+     background-color: #82ff7700;
  }
 
  .detail01 {
-      background-color: #ff777700; 
+     background-color: #ff777700;
  }
 
  .insta01:hover {
@@ -210,6 +221,10 @@
      background-color: #00000050;
  }
 
+
+ .p7_m {
+     display: none;
+ }
 
 
  /* ===== 섹션별 이미지 hover ===== */
@@ -257,8 +272,10 @@
 
 
 
- 
+ /*  */
  /* 모바일 */
+ /*  */
+
  @media (max-width: 767px) {
      body {
          width: 100%;
@@ -284,13 +301,17 @@
      .p1 {
          background-image: url("../img/bg_main2.jpg");
      }
+     
+      .p2 {
+     background-image: url("../img/bg_paper_s_2.jpg");
+ }
 
      .p5 {
          background-image: url("../img/bg_logo2.jpg");
      }
 
      .p6 {
-         background-image: url("../img/bg_insta2.jpg");
+         background-image: url("../img/bg_digital2.jpg");
      }
 
      .p7 {
@@ -312,15 +333,60 @@
 
 
 
+
      .p6_wrqp {
          width: 75vw;
          height: 78vh;
-         border: 1px solid rgba(255, 0, 0, 0);
+         border: 1px solid rgba(243, 77, 77, 0);
          position: absolute;
          display: grid;
          grid-template-columns: 1fr;
          /* 1열 */
-         grid-template-rows: 3fr 20px 3fr;
+         grid-template-rows: 3.4fr 18px 2.6fr;
+     }
+
+     .p7 {
+         width: 100%;
+     }
+
+     .p7_m {
+         width: 80%;
+         margin: 0 auto;
+         display: flex;
+         flex-direction: column;
+         align-items: start;
+         justify-content: center;
+         gap: 37px;
+     }
+
+     .p7_m h1 {
+         font-size: 30px;
+         margin-bottom: -10px;
+     }
+
+     .p7_m h2 {
+         font-size: 14px;
+         font-weight: 500;
+         letter-spacing: -1px;
+         margin-bottom: 10px;
+     }
+
+     .p7_m h3 {
+         font-size: 12px;
+         font-weight: 300;
+         letter-spacing: -1px;
+         margin-bottom: 3px;
+     }
+
+     .whatido img {
+         width: 60%;
+         margin-top: 5px;
+     }
+
+     .contact h3 span {
+         display: inline-block;
+         width: 50px;
+         font-weight: 500;
      }
 
 

@@ -15,7 +15,7 @@
             <ul>
                 <li><a href="#" data-index="0">I - Intro Video</a></li>
                 <li><a href="#" data-index="1">II - Motion – Starbucks</a></li>
-                <li><a href="#" data-index="2">III - Motion – Market Kurly</a></li>
+                <li><a href="#" data-index="2">III - AI-based Video Editing</a></li>
                 <li><a href="#" data-index="3">IV - Social Media Reels</a></li>
             </ul>
         </div>
@@ -47,9 +47,16 @@
                         <h4><span>Editing: </span> 100%</h4>
                     </div>
                 </div>
-                <h4>
+                <h4 class="h4_W">
                     범인 추적 콘텐츠 인트로 영상입니다. 긴장감 있는 음악과 편집, 화면 전환을<br>
                     통해 몰입감을 유지하도록 제작하였으며 이미지 소스는 AI를 활용해 생성하였습니다.
+                    <br><span class="notice">(🔊사운드 ON 권장 ⚠️볼륨 조절 주의)</span>
+                </h4>
+                <h4 class="h4_m">
+                    범인 추적 콘텐츠 인트로 영상입니다.<br>
+                    긴장감 있는 음악과 편집, 화면 전환을 통해 몰입감을<br> 
+                    유지하도록 제작하였으며 이미지 소스는<br> 
+                    AI를 활용해 생성하였습니다.
                     <br><span class="notice">(🔊사운드 ON 권장 ⚠️볼륨 조절 주의)</span>
                 </h4>
             </div>
@@ -67,10 +74,18 @@
                         <h4><span>Editing: </span> 100%</h4>
                     </div>
                 </div>
-                <h4>
+                <h4 class="h4_W">
                     스타벅스 프로모션 제품을 직관적으로 소개하기 위해 제작한 모션 영상입니다.<br>
                     리듬감 있는 음악을 활용했으며, 이미지는 공식 홈페이지에서 가져와 포토샵 후보정을 <br>
                     거쳐 영상에 적용했습니다.<span class="notice">(🔊사운드 ON 권장 ⚠️볼륨 조절 주의)</span>
+                </h4>
+                <h4 class="h4_m">
+                    스타벅스 프로모션 제품을 <br> 
+                    소개하기 위해 제작한 모션 영상입니다.<br>
+                    리듬감 있는 음악을 활용했으며, <br> 
+                    이미지는 공식 홈페이지에서 가져와 포토샵  <br>
+                    후보정을거쳐 영상에 적용했습니다.<br>
+                    <span class="notice">(🔊사운드 ON 권장 ⚠️볼륨 조절 주의)</span>
                 </h4>
             </div>
         </section>
@@ -88,9 +103,16 @@
                         <h4><span>Editing: </span> 100%</h4>
                     </div>
                 </div>
-                <h4>
+                <h4 class="h4_W">
                     AI로 생성한 애니메이션 비주얼과 사진 편집 앱 화면 녹화를 활용해<br> 
                     영상 소스를 구성하고, 배경음악의 흐름에 맞춰 리듬감 있게 편집한 영상입니다.
+                    <br><span class="notice">(🔊사운드 ON 권장 ⚠️볼륨 조절 주의)</span>
+                </h4>
+                <h4 class="h4_m">
+                    AI로 생성한 애니메이션 비주얼과<br> 
+                    사진 편집앱 화면녹화를 활용해 영상 소스를 구성하고,<br> 
+                    배경음악의 흐름에 맞춰 리듬감 있게<br> 
+                    편집한 영상입니다.<br>
                     <br><span class="notice">(🔊사운드 ON 권장 ⚠️볼륨 조절 주의)</span>
                 </h4>
             </div>
@@ -220,68 +242,102 @@
 
 
 
-                <script>
-                    document.querySelectorAll('.reels').forEach((reels) => {
-                        const track = reels.querySelector('.reels-track');
-                        const items = reels.querySelectorAll('.reels-item');
-                        const prevBtn = reels.querySelector('.reels-prev');
-                        const nextBtn = reels.querySelector('.reels-next');
-                        const pagination = reels.querySelector('.reels-pagination');
+               <script>
+document.querySelectorAll('.reels').forEach((reels) => {
+    const track = reels.querySelector('.reels-track');
+    const items = reels.querySelectorAll('.reels-item');
+    const prevBtn = reels.querySelector('.reels-prev');
+    const nextBtn = reels.querySelector('.reels-next');
+    const pagination = reels.querySelector('.reels-pagination');
 
-                        const gap = 24;
-                        const itemWidth = items[0].offsetWidth + gap;
-                        const visibleCount = Math.floor(track.offsetWidth / itemWidth);
-                        const totalPages = Math.ceil(items.length / visibleCount);
+    const gap = 24;
 
-                        let currentPage = 0;
+    let currentPage = 0;
+    let itemWidth, visibleCount, totalPages;
 
-                        /* pagination dots 생성 */
-                        pagination.innerHTML = '';
-                        for (let i = 0; i < totalPages; i++) {
-                            const dot = document.createElement('div');
-                            dot.className = 'reels-dot';
-                            if (i === 0) dot.classList.add('active');
+    function calcLayout() {
+        itemWidth = items[0].offsetWidth + gap;
+        visibleCount = Math.floor(track.offsetWidth / itemWidth) || 1;
+        totalPages = Math.ceil(items.length / visibleCount);
+    }
 
-                            dot.addEventListener('click', () => {
-                                currentPage = i;
-                                update();
-                            });
+    /* pagination dots 생성 */
+    function createPagination() {
+        pagination.innerHTML = '';
+        for (let i = 0; i < totalPages; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'reels-dot';
+            if (i === currentPage) dot.classList.add('active');
 
-                            pagination.appendChild(dot);
-                        }
+            dot.addEventListener('click', () => {
+                currentPage = i;
+                update();
+            });
 
-                        const dots = pagination.querySelectorAll('.reels-dot');
+            pagination.appendChild(dot);
+        }
+    }
 
-                        function update() {
-                            track.scrollTo({
-                                left: currentPage * track.offsetWidth,
-                                behavior: 'smooth'
-                            });
+    function update() {
+        const isMobile = window.innerWidth <= 768;
 
-                            dots.forEach(d => d.classList.remove('active'));
-                            dots[currentPage].classList.add('active');
+        let scrollLeft;
 
-                            prevBtn.disabled = currentPage === 0;
-                            nextBtn.disabled = currentPage === totalPages - 1;
-                        }
+        if (isMobile) {
+            
+            const pageStartIndex = currentPage * visibleCount;
+            const pageWidth = visibleCount * itemWidth;
+            const offset = (track.offsetWidth - pageWidth) / 2;
 
-                        prevBtn.addEventListener('click', () => {
-                            if (currentPage > 0) {
-                                currentPage--;
-                                update();
-                            }
-                        });
+            scrollLeft = pageStartIndex * itemWidth - offset;
+            scrollLeft = Math.max(0, scrollLeft);
+        } else {
+           
+            scrollLeft = currentPage * track.offsetWidth;
+        }
 
-                        nextBtn.addEventListener('click', () => {
-                            if (currentPage < totalPages - 1) {
-                                currentPage++;
-                                update();
-                            }
-                        });
+        track.scrollTo({
+            left: scrollLeft,
+            behavior: 'smooth'
+        });
 
-                        update();
-                    });
-                </script>
+        const dots = pagination.querySelectorAll('.reels-dot');
+        dots.forEach(d => d.classList.remove('active'));
+        if (dots[currentPage]) dots[currentPage].classList.add('active');
+
+        prevBtn.disabled = currentPage === 0;
+        nextBtn.disabled = currentPage === totalPages - 1;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 0) {
+            currentPage--;
+            update();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages - 1) {
+            currentPage++;
+            update();
+        }
+    });
+
+    function init() {
+        calcLayout();
+        createPagination();
+        update();
+    }
+
+    window.addEventListener('resize', () => {
+        calcLayout();
+        createPagination();
+        update();
+    });
+
+    init();
+});
+</script>
 
 
 
