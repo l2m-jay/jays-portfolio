@@ -145,7 +145,7 @@
 
  .tab-content h3 {
      font-size: 15px;
-     font-weight: 500;
+     font-weight: 300;
      margin-bottom: 60px;
  }
 
@@ -237,6 +237,7 @@
          display: block;
          margin: 0 auto;
      }
+
 
 
  }
