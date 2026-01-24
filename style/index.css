@@ -329,6 +329,7 @@
 
      .p4_m_img {
          display: block;
+
      }
 
 
@@ -356,32 +357,28 @@
          flex-direction: column;
          align-items: start;
          justify-content: center;
-         gap: 37px;
+         gap: 35px;
      }
 
      .p7_m h1 {
-         font-size: 30px;
+         font-size: 25px;
          margin-bottom: -10px;
      }
 
      .p7_m h2 {
-         font-size: 14px;
+         font-size: 16px;
          font-weight: 500;
          letter-spacing: -1px;
          margin-bottom: 10px;
      }
 
      .p7_m h3 {
-         font-size: 12px;
+         font-size: 13px;
          font-weight: 300;
          letter-spacing: -1px;
          margin-bottom: 3px;
      }
 
-     .whatido img {
-         width: 60%;
-         margin-top: 5px;
-     }
 
      .contact h3 span {
          display: inline-block;

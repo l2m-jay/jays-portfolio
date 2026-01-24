@@ -233,7 +233,7 @@ header {
   header {
     width: 30px !important;
     height: 66px;
-    right: 2.2%;
+    right: 2.8%;
     bottom: 5%;
   }
 
@@ -279,7 +279,7 @@ header {
     justify-content: center;
     align-items: center;
 
-    background: rgba(255, 255, 255, 0.755);
+    background: rgba(0, 0, 0, 0.66);
     z-index: 9999;
   }
 
