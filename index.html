@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Portfolio 2026</title>
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="icon" href="img/jay_favicon.svg">
+</head>
+
+<body>
+
+    <header>
+        <div class="nav">
+            <ul>
+                <li><a href="#" data-index="1">02 UX / UI - Hobby Platform</a></li>
+                <li><a href="#" data-index="2">03 UX / UI - Diptyque Web</a></li>
+                <li><a href="#" data-index="3">04 Motion & Video</a></li>
+            </ul>
+        </div>
+        <div class="nav nav2">
+            <ul>
+                <li><a href="#" data-index="4">05 Branding Design</a></li>
+                <li><a href="#" data-index="5">06 Digital Contents Design</a></li>
+                <li><a href="#" data-index="6">07 About Me</a></li>
+            </ul>
+        </div>
+
+    </header>
+    <div class="container">
+        <section class="p1">
+        </section>
+
+        <section class="p2">
+            <div class="wrap">
+                <a href="sodam.html"><img src="img/hover_pigma.png" alt=""></a>
+            </div>
+        </section>
+
+        <section class="p3">
+            <div class="wrap">
+                <a href="diptyque.html"><img src="img/hover_diptyque.gif" alt=""></a>
+            </div>
+        </section>
+
+        <section class="p4">
+            <div class="wrap">
+                <a href="video.html"><img src="img/hover_video.png" alt=""></a>
+            </div>
+        </section>
+
+        <section class="p5">
+            <div class="wrap">
+                <a href="logo.html"><img src="img/transparent.png" alt=""></a>
+            </div>
+        </section>
+
+        <section class="p6">
+            <div class="p6_wrqp">
+                <a class="insta01" href="insta.html"><div class="insta"></div></a>
+                <a href="#"><div class="space"></div></a>
+                <a class="detail01" href="detail.html"><div class="detail"></div></a>
+            </div>
+            
+        </section>
+
+        <section class="p7">
+            <div class="wrap">
+            </div>
+        </section>
+    </div>
+
+    <nav class="pagination"></nav>
+
+    <script>
+        const container = document.querySelector('.container');
+        const sections = document.querySelectorAll('section');
+        const pagination = document.querySelector('.pagination');
+        const navLinks = document.querySelectorAll('.nav a');
+
+        let current = 0;
+        let isAnimating = false;
+        const total = sections.length;
+
+        // 페이지네이션 버튼 생성
+        sections.forEach((_, i) => {
+            const btn = document.createElement('button');
+            btn.textContent = String(i + 1).padStart(2, '0');
+            btn.addEventListener('click', () => moveTo(i));
+            pagination.appendChild(btn);
+        });
+
+        const buttons = pagination.querySelectorAll('button');
+
+        function updatePagination() {
+            buttons.forEach((btn, i) => {
+                btn.classList.toggle('active', i === current);
+            });
+
+            navLinks.forEach(link => {
+                link.classList.toggle(
+                    'active',
+                    Number(link.dataset.index) === current
+                );
+            });
+        }
+
+        function moveTo(index) {
+            if (index < 0 || index >= total || isAnimating) return;
+
+            isAnimating = true;
+            current = index;
+
+            container.style.transform = `translateY(-${current * 100}vh)`;
+            updatePagination();
+
+            setTimeout(() => {
+                isAnimating = false;
+            }, 900);
+        }
+
+        // 마우스 휠
+        window.addEventListener(
+            'wheel',
+            e => {
+                if (isAnimating) return;
+                e.deltaY > 0
+                    ? moveTo(current + 1)
+                    : moveTo(current - 1);
+            },
+            { passive: true }
+        );
+
+        // 모바일 터치
+        let startY = 0;
+        window.addEventListener('touchstart', e => {
+            startY = e.touches[0].clientY;
+        });
+        window.addEventListener('touchend', e => {
+            const diff = startY - e.changedTouches[0].clientY;
+            if (Math.abs(diff) < 50 || isAnimating) return;
+            diff > 0
+                ? moveTo(current + 1)
+                : moveTo(current - 1);
+        });
+
+        // nav 클릭 이동 + 세션에 저장
+        navLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const index = Number(link.dataset.index);
+                sessionStorage.setItem('currentSection', index); // 이동 전에 저장
+                moveTo(index);
+                window.location.href = link.href; // 실제 이동
+            });
+        });
+
+        // section 내 이미지 클릭 시도 (예: p4)
+        document.querySelectorAll('section a').forEach(link => {
+            link.addEventListener('click', e => {
+                const parentSection = link.closest('section');
+                const index = Array.from(sections).indexOf(parentSection);
+                sessionStorage.setItem('currentSection', index); // 클릭 시 현재 섹션 저장
+            });
+        });
+
+        // 브라우저 뒤로가기 대응
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        window.addEventListener('pageshow', event => {
+            const saved = sessionStorage.getItem('currentSection');
+            if (saved !== null) {
+                current = Number(saved);
+                container.style.transition = 'none'; // 순간 이동
+                container.style.transform = `translateY(-${current * 100}vh)`;
+                updatePagination();
+                setTimeout(() => {
+                    container.style.transition = ''; // 다음부터 애니메이션 적용
+                });
+            }
+        });
+
+        // 초기 상태
+        updatePagination();
+    </script>
+
+
+</body>
+
+</html>

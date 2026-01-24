@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Page</title>
+    <link rel="stylesheet" href="style/detail.css">
+    <link rel="icon" href="img/jay_favicon.svg">
+</head>
+
+<body>
+    <header>
+        <!-- <div class="home">
+            <a href="index.html"><img src="img/home.png" alt=""></a>            
+        </div> -->
+        <div class="btn">
+            <a href="#"></a>
+        </div>
+        <div class="home2">
+            <a href="index.html">
+                <img src="img/home.svg" alt="">
+            </a>
+        </div>
+    </header>
+
+
+
+    <div class="detail-wrap">
+
+        <!-- 탭버튼 -->
+        <div class="tab-header">
+            <button class="tab-btn active" data-tab="tab1">Detail Page 01</button>
+            <button class="tab-btn" data-tab="tab2">Detail Page 02</button>
+        </div>
+
+        <!-- 상페 이미지 교체 -->
+        <div id="tab1" class="tab-content active">
+            <h3>체험 공간에 적용된 모듈 가구 브랜드 상세페이지를 제작했습니다.<br>
+                모듈 가구의 활용 방식, 공간 확장성을 중심으로 콘텐츠를 구성했으며,<br>
+                가구의 기능과 사용 포인트를 직관적으로 전달하기 위해<br>
+                아이콘을 직접 일러스트로 제작하여 정보 전달력과 시각적 완성도를 높였습니다.<br>
+                여기에 행사장 이해를 돕기 위해서 뉴스 뮤지엄 ACC 현장을<br>
+                직접 촬영한 사진을 활용하였습니다.
+
+            </h3>
+            <img src="img/detail_lala1.jpg" alt="상세페이지 이미지 1">
+            <img src="img/detail_lala2.jpg" alt="상세페이지 이미지 1">
+            <img src="img/detail_lala3.jpg" alt="상세페이지 이미지 1">
+        </div>
+
+        <div id="tab2" class="tab-content">
+            <h3>피그마를 작업하며 프로젝트에 들어갈 상세페이지를 직접 제작했습니다.<br>
+                향이라는 추상적인 요소를 감성적으로 표현하되, 클래스 프로그램, 커리큘럼,<br>
+                타임테이블 순으로 구성해 체험 흐름을 명확히 이해할 수 있도록 디자인했습니다.<br>
+                또한 공방 소개를 통해 분위기와 브랜드 방향성을 전달하며,<br>
+                사용자가 클래스 무드를 더 폭넓게 이해하도록 하였습니다.<br></h3>
+            <img src="img/detail_have.jpg" alt="상세페이지 이미지 2">
+        </div>
+
+    </div>
+
+
+    <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const detailWrap = document.querySelector('.detail-wrap');
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // 버튼 활성화
+            tabButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // 콘텐츠 전환
+            const target = btn.getAttribute('data-tab');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === target) {
+                    content.classList.add('active');
+                }
+            });
+
+            // 스크롤 위치 초기화
+             detailWrap.scrollIntoView({ block: 'start' });
+        });
+    });
+</script>
+
+
+</body>
+
+</html>
