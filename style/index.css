@@ -159,12 +159,22 @@
  }
 
  .p2 img {
-     width: 550px;
+     width: 100%;
+     max-width: 550px;
      transform: rotate(-2deg);
  }
 
  .p3 img {
-     width: 400px
+     width: 100%;
+     max-width: 400px
+ }
+
+ .p4 img {
+     width: 100%;
+ }
+
+ .p4_m_img {
+     display: none;
  }
 
  .p6 {
@@ -172,6 +182,8 @@
      justify-content: center;
      align-items: center;
  }
+
+
 
  .p6_wrqp {
      width: 75vw;
@@ -182,7 +194,13 @@
      grid-template-columns: 3.6fr 1.7fr 4.7fr;
  }
 
+ .insta01 {
+     background-color: #82ff7700; 
+ }
 
+ .detail01 {
+      background-color: #ff777700; 
+ }
 
  .insta01:hover {
      background-color: #00000050;
@@ -233,4 +251,82 @@
  .pagination button:hover {
      color: #ffffff;
      font-weight: bold;
+ }
+
+
+
+
+
+ 
+ /* 모바일 */
+ @media (max-width: 767px) {
+     body {
+         width: 100%;
+     }
+
+     .container {
+         width: 100%;
+     }
+
+
+     .nav ul {
+         width: 85%;
+         margin-left: 0px;
+         /* gap: 160px; */
+     }
+
+     .nav ul li a {
+         font-size: 13px;
+     }
+
+
+
+     .p1 {
+         background-image: url("../img/bg_main2.jpg");
+     }
+
+     .p5 {
+         background-image: url("../img/bg_logo2.jpg");
+     }
+
+     .p6 {
+         background-image: url("../img/bg_insta2.jpg");
+     }
+
+     .p7 {
+         background-image: url("../img/bg_about2.jpg");
+     }
+
+     .wrap_p3 {
+         width: 70%;
+         margin: 0 auto;
+     }
+
+     .p4_w_img {
+         display: none;
+     }
+
+     .p4_m_img {
+         display: block;
+     }
+
+
+
+     .p6_wrqp {
+         width: 75vw;
+         height: 78vh;
+         border: 1px solid rgba(255, 0, 0, 0);
+         position: absolute;
+         display: grid;
+         grid-template-columns: 1fr;
+         /* 1열 */
+         grid-template-rows: 3fr 20px 3fr;
+     }
+
+
+     /* ===== 메인nav 페이지네이션 ===== */
+     .pagination {
+         right: 20px;
+
+     }
  }
