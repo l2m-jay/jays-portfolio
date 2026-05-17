@@ -87,7 +87,7 @@
 
  /* 👉 상세페이지 너비 조절 */
  :root {
-     --detail-width: 850px;
+     --detail-width: 600px;
  }
 
  body {
@@ -237,7 +237,6 @@
          display: block;
          margin: 0 auto;
      }
-
 
 
  }
